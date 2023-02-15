@@ -3,7 +3,8 @@
 
 
 1. IMPLEMENTAREA CLASELOR PRINCIPALE:
-   In aceste clase am pus atributele specifice fiecarui tip 
+
+In aceste clase am pus atributele specifice fiecarui tip 
     --> Streamers 
     --> Streams 
     --> User 
