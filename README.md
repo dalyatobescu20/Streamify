@@ -1,45 +1,43 @@
-//PROIECT FINAL POO 2022-2023//
+
 //TOBESCU DALYA-ALEXANDRA//
 
 
-1. IMPLEMENTAREA CLASELOR PRINCIPALE:
-
-        In aceste clase am pus atributele specifice fiecarui tip 
+1. MAIN CLASSES
+        
+        I put the specific attributes for each type of class:
         --> Streamers 
         --> Streams 
         --> User 
 
-2. IMPLEMENATAREA CLASELOR PENTRU LISTE
+2. LIST CLASSES
         
-        Am folosit Singleton pentru a putea instantia o singura data fiecare clasa,
-        de asemenea si pentru folosirea lor mai usoara in restul claselor.
+        I used Singleton to be able to instantiate each class only once.
+        Also for their easier use in the rest of the classes.
         -->ListaStreamari
         -->ListaStreams
         -->ListaUseri
 
 3. IMPLEMENTAREA CLASELOR BUILDER
    
-        Am folosit Builder pentru fiecare clasa principala pentru a usura adaugarea in 
-        liste, fara a mai fi nevoie de constructori, setter and getter in restul codului.
-        --> practic am facut codul sa fie mai citibil.
+        I used Builder for each main classes for make it easier to add in lists, without 
+        the need for constructors, setter and getter in the rest of the code.
 
-4.IMPLEMENENTAREA CLASELOR COMMANDS
+4.COMMANDS CLASSES
         
-        Am folosit Commands atat pentru useri, streamari si pentru clasa Proiect POO
-        pentru a evidentia clar fiecare comanda si a separa codul astfel:
-        --> ca Streamer poti avea comenzile de adaugare, stergere, listare
-        mai exact ComandaAdaugare, ComandaAfisarebyStreamer, ComandaStergere
-        --> ca User poti avea ComandaAfisarebyUser, ComandaAscultare, ComandaRecomandari
+        I used Commands for users, streamers and Proiect_POO class to clearly highlight 
+        each command and separate the code like this:
+        --> as Streamer you can have commands like: add, delete, list
+        more specifically ComandaAdaugare, ComandaAfisarebyStreamer, ComandaStergere
+        --> as User you can have ComandaAfisarebyUser, ComandaAscultare, ComandaRecomandari
         ComandaSurpriza
-        --> in cazul clasei main am separat fiecare comanda pe care o citesc din fisier,
-        astfel main-ul are comenzile lui: add, afisare, clearData(golesc toate listele
-        la final), makeLists(fac listele in functie de datele citite din fisier).
-        PS: partea asta cu clasa main, am facut-o mai mult ca sa fie mai compact codul.
+        --> in the case of the main class, I separated each command that I read from the file,
+        thus the main has its commands: add, display, clearData (empty all lists
+        at the end), makeLists (make the lists according to the data read from the file).
+        PS: this part with the main class, I made it more to make the code more compact.
 
-5.IMPLEMENATAREA CLASEI FATADE
+5.FATADE CLASS
    
-        Pentru a evita scrierea codului duplicat in clasele pentru comenzi, am creat o interfata
-        Operations si o clasa Fatade, pentru a "ascunde" in acelasi timp codul care se referea 
-        la ordonare, conversie, cautare, de restul codului.
-        Avand in vedere ca aceste operatii au legatura cu clasa Streams, totul este legat de ea.
-    
+        To avoid writing duplicate code in the command classes, I created an interface
+        Operations and a Facade class, to "hide" at the same time the code it referred to
+        to ordering, conversion, search, from the rest of the code. Considering that these
+        operations are related to the Streams class, everything is related to it.
