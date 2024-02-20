@@ -29,7 +29,7 @@ public class Tests {
         ByteArrayOutputStream outPrintStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outPrintStream));
 
-        ProiectPOO.main(null);
+        Main.main(null);
 
         assert (outPrintStream.toString().trim()).equals("Nothing to read here");
         System.setOut(System.out);
@@ -43,7 +43,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test1/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder);
@@ -58,7 +58,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test2/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -73,7 +73,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test3/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -88,7 +88,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test4/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, false, true);
@@ -103,7 +103,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test5/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -118,7 +118,7 @@ public class Tests {
         String inputFolder = "inputs1/";
         String commandFolder = "test6/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder);
@@ -133,7 +133,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test7/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, false, true);
@@ -148,7 +148,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test8/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, false, true);
@@ -163,7 +163,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test9/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, false, true);
@@ -178,7 +178,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test10/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -193,7 +193,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test11/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder);
@@ -208,7 +208,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test12/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -223,7 +223,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test13/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -238,7 +238,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test14/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);
@@ -253,7 +253,7 @@ public class Tests {
         String inputFolder = "inputs2/";
         String commandFolder = "test15/";
 
-        ProiectPOO.main(getInputArgs(inputFolder, commandFolder));
+        Main.main(getInputArgs(inputFolder, commandFolder));
         String output = outPrintStream.toString();
 
         assertJsonLineAreEqual(output, commandFolder, true);

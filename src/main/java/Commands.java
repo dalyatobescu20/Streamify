@@ -17,15 +17,15 @@ class ComandaAdaugare extends Commands {
         Streams streams = new StreamsBuilder().withStreamType(l[2])
                 .withId(l[3]).withStreamGenre(l[4]).withNoOfStreams("0").withStreamerId(l[0])
                 .withLength(l[5]).withDateAdded("0").withName(str).build();
-        ListaStreams.getInstance().getStreams().add(streams);
+        StreamsList.getInstance().getStreams().add(streams);
     }
 }
 
 class ComandaStergere extends  Commands {
     public void executa(String[] l) {
-        Streams s = ListaStreams.findStream(l[2]);
-        ListaStreams.getInstance().getStreams().remove(s);
-        for (User user : ListaUseri.getInstance().getUseri()) {
+        Streams s = StreamsList.findStream(l[2]);
+        StreamsList.getInstance().getStreams().remove(s);
+        for (User user : UsersList.getInstance().getUseri()) {
             for (int i = 0; i < user.streams.size(); i++) {
                 if (user.streams.get(i).equals(s.getId())) {
                     user.streams.remove(i);
@@ -39,9 +39,9 @@ class ComandaAfisare extends  Commands {
 
         ObjectMapper objectMapper = new ObjectMapper();
         ArrayList<POJO> array = new ArrayList<>();
-        Fatade fatade = new Fatade();
+        Facade fatade = new Facade();
 
-        if (ListaStreameri.findStreamers(l[0]) != null) {
+        if (StreamersList.findStreamers(l[0]) != null) {
             fatade.findStreamByStreamer(l, array);
             Collections.reverse(array);
         } else {
@@ -54,9 +54,9 @@ class ComandaAfisare extends  Commands {
 
 class ComandaAscultare extends Commands {
     public void executa(String[] l) {
-        User user1 = ListaUseri.findUser(l[0]);
+        User user1 = UsersList.findUser(l[0]);
         user1.streams.add(Integer.parseInt(l[2]));
-        Streams str = ListaStreams.findStream(l[2]);
+        Streams str = StreamsList.findStream(l[2]);
         if(str!= null) {
             str.setNoOfStreams(str.getNoOfStreams() + 1);
         }
@@ -69,11 +69,11 @@ class ComandaRecomandari extends Commands {
         ArrayList<POJO> array1 = new ArrayList<>();
         ArrayList<Streams> temp = new ArrayList<>();
 
-        for (Integer id : Objects.requireNonNull(ListaUseri.findUser(l[0])).streams) {
-            Streams stream = ListaStreams.findStream(String.valueOf(id));
-            name = ListaStreameri.getStreamerName(stream.getStreamerId());
+        for (Integer id : Objects.requireNonNull(UsersList.findUser(l[0])).streams) {
+            Streams stream = StreamsList.findStream(String.valueOf(id));
+            name = StreamersList.getStreamerName(stream.getStreamerId());
 
-            for (Streams s : ListaStreams.getInstance().getStreams()) {
+            for (Streams s : StreamsList.getInstance().getStreams()) {
                 assert stream != null;
                 if (s.getStreamerId().equals(stream.getStreamerId()) && (!s.equals(stream)) &&
                         s.getStreamType().equals(Integer.parseInt(String.valueOf(Streams.codificareType(l[2]))))) {
@@ -84,7 +84,7 @@ class ComandaRecomandari extends Commands {
             int i = 0;
             for(Streams streams : temp) {
                 if(i < 5) {
-                    Fatade fatade = new Fatade();
+                    Facade fatade = new Facade();
                     fatade.simplify(name, array1, streams);
                 }
                 i++;
@@ -100,12 +100,12 @@ class ComandaSurpriza extends Commands {
 
         ObjectMapper objectMapper = new ObjectMapper();
         ArrayList<POJO> array2 = new ArrayList<>();
-        Fatade fatade = new Fatade();
-        ListaStreams.sort();
+        Facade fatade = new Facade();
+        StreamsList.sort();
         ArrayList<Streams> arrayStreams = new ArrayList<>();
 
-        for (Streamers streamers : fatade.newArrayOfStreamers(Objects.requireNonNull(ListaUseri.findUser(l[0])))) {
-            for (Streams s1 : ListaStreams.getInstance().getStreams()) {
+        for (Streamers streamers : fatade.newArrayOfStreamers(Objects.requireNonNull(UsersList.findUser(l[0])))) {
+            for (Streams s1 : StreamsList.getInstance().getStreams()) {
                 if (s1.getStreamerId().equals(streamers.getId()) && s1.getStreamType()
                         .equals(Integer.parseInt(String.valueOf(Streams.codificareType(l[2]))))) {
                     arrayStreams.add(s1);
@@ -115,7 +115,7 @@ class ComandaSurpriza extends Commands {
         fatade.sortStreams(arrayStreams);
         for (int i = 0; i < arrayStreams.size(); i++) {
             if (i < 3) {
-                String streamerName = ListaStreameri.getStreamerName(arrayStreams.get(i).getStreamerId());
+                String streamerName = StreamersList.getStreamerName(arrayStreams.get(i).getStreamerId());
                 fatade.simplify(streamerName, array2, arrayStreams.get(i));
             }
         }

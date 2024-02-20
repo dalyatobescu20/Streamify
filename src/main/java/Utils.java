@@ -15,9 +15,9 @@ class makeLists extends  Utils {
 
 class clearData extends  Utils {
     public void executa(String[] l, String[] args) {
-        ListaStreams.getInstance().getStreams().clear();
-        ListaStreameri.getInstance().getStreamers().clear();
-        ListaUseri.getInstance().getUseri().clear();
+        StreamsList.getInstance().getStreams().clear();
+        StreamersList.getInstance().getStreamers().clear();
+        UsersList.getInstance().getUseri().clear();
 
     }
 }

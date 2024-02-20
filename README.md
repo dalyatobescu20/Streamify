@@ -1,43 +1,25 @@
+1. Main Classes
+   In the heart of Streamify are three main classes, each tailored to its unique role:
 
-//TOBESCU DALYA-ALEXANDRA//
+Streamers: Representing the creative individuals who share their content.
+Streams: Housing the diverse array of content available for streaming.
+User: Capturing the profiles and preferences of those engaging with the platform.
+2. List Classes
+   Utilizing the Singleton design pattern, the List Classes ensure the efficient management of resources by allowing instantiation only once:
 
+ListaStreamari: For managing Streamers' information.
+StreamsList: For organizing the available Streams.
+ListaUseri: Handling User data with ease and efficiency.
+3. Implementation of Builder Classes
+   To streamline the process of adding items to lists without the clutter of constructors and setters, Builder classes are employed for each main class, ensuring simplicity and clarity.
 
-1. MAIN CLASSES
-        
-        I put the specific attributes for each type of class:
-        --> Streamers 
-        --> Streams 
-        --> User 
+4. Commands Classes
+   Commands are the backbone of user interaction within Streamify. These classes meticulously organize and execute user and system commands:
 
-2. LIST CLASSES
-        
-        I used Singleton to be able to instantiate each class only once.
-        Also for their easier use in the rest of the classes.
-        -->ListaStreamari
-        -->ListaStreams
-        -->ListaUseri
+Streamer Commands: Including additions, deletions, and listings of streams.
+User Commands: Providing functionalities for viewing streams, recommendations, and surprises.
+Main Class Commands: Orchestrating high-level actions like adding data, displaying information, and clearing data to maintain a clean and efficient system.
+5. Facade Class
+   To enhance code reusability and maintainability, the Facade class consolidates common operations under one roof, effectively abstracting complexities and promoting a more cohesive architecture:
 
-3. IMPLEMENTAREA CLASELOR BUILDER
-   
-        I used Builder for each main classes for make it easier to add in lists, without 
-        the need for constructors, setter and getter in the rest of the code.
-
-4.COMMANDS CLASSES
-        
-        I used Commands for users, streamers and Proiect_POO class to clearly highlight 
-        each command and separate the code like this:
-        --> as Streamer you can have commands like: add, delete, list
-        more specifically ComandaAdaugare, ComandaAfisarebyStreamer, ComandaStergere
-        --> as User you can have ComandaAfisarebyUser, ComandaAscultare, ComandaRecomandari
-        ComandaSurpriza
-        --> in the case of the main class, I separated each command that I read from the file,
-        thus the main has its commands: add, display, clearData (empty all lists
-        at the end), makeLists (make the lists according to the data read from the file).
-        PS: this part with the main class, I made it more to make the code more compact.
-
-5.FATADE CLASS
-   
-        To avoid writing duplicate code in the command classes, I created an interface
-        Operations and a Facade class, to "hide" at the same time the code it referred to
-        to ordering, conversion, search, from the rest of the code. Considering that these
-        operations are related to the Streams class, everything is related to it.
+Facade: Simplifying operations related to ordering, conversion, and search within the Streams class, ensuring a seamless user experience while keeping the codebase tidy and manageable.

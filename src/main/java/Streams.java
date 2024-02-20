@@ -2,7 +2,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
@@ -96,7 +95,7 @@ public class Streams implements Operations {
             String[] line;
             reader.readNext();
             while ((line = reader.readNext()) != null) {
-                ListaStreams.getInstance().getStreams().add( new StreamsBuilder().withStreamType(line[0])
+                StreamsList.getInstance().getStreams().add( new StreamsBuilder().withStreamType(line[0])
                         .withId(line[1]).withStreamGenre(line[2]).withNoOfStreams(line[3]).withStreamerId(line[4])
                         .withLength(line[5]).withDateAdded(line[6]).withName(line[7]).build());
             }
@@ -160,11 +159,11 @@ public class Streams implements Operations {
     }
 
     public ArrayList<Streamers>  newArrayOfStreamers(User user) {
-        ArrayList<Streamers> newStreamers = ListaStreameri.getInstance().getStreamers();
+        ArrayList<Streamers> newStreamers = StreamersList.getInstance().getStreamers();
         for (Integer id : user.streams) {
-            Streams stream = ListaStreams.findStream(String.valueOf(id));
-            for (int i = 0; i < ListaStreameri.getInstance().getStreamers().size(); i++) {
-                if (ListaStreameri.getInstance().getStreamers().get(i).getId().equals(stream.getStreamerId())) {
+            Streams stream = StreamsList.findStream(String.valueOf(id));
+            for (int i = 0; i < StreamersList.getInstance().getStreamers().size(); i++) {
+                if (StreamersList.getInstance().getStreamers().get(i).getId().equals(stream.getStreamerId())) {
                     newStreamers.remove(i);
                 }
             }
@@ -175,7 +174,7 @@ public class Streams implements Operations {
     @Override
     public void simplify(String streamerName, ArrayList<POJO> array, Streams stream) {
 
-        Fatade fatade = new Fatade();
+        Facade fatade = new Facade();
         String newdate =  fatade.convertD(stream);
         String time = fatade.convertT(stream);
 
@@ -187,19 +186,19 @@ public class Streams implements Operations {
     }
 
     public void findStreamByStreamer(String[] l, ArrayList<POJO> array) {
-        Fatade fatade = new Fatade();
-        for (Streams s : ListaStreams.getInstance().getStreams()) {
+        Facade fatade = new Facade();
+        for (Streams s : StreamsList.getInstance().getStreams()) {
             if (s.getStreamerId().equals(Integer.parseInt(l[0]))) {
-                fatade.simplify(ListaStreameri.findStreamers(l[0]).getName(), array, s);
+                fatade.simplify(StreamersList.findStreamers(l[0]).getName(), array, s);
             }
         }
     }
 
     public void findStreamByUser(String[] l, ArrayList<POJO> array) {
-        Fatade fatade = new Fatade();
-        for (Integer id : Objects.requireNonNull(ListaUseri.findUser(l[0])).streams) {
-            Streams stream = ListaStreams.findStream(String.valueOf(id));
-            for (Streamers s : ListaStreameri.getInstance().getStreamers()) {
+        Facade fatade = new Facade();
+        for (Integer id : Objects.requireNonNull(UsersList.findUser(l[0])).streams) {
+            Streams stream = StreamsList.findStream(String.valueOf(id));
+            for (Streamers s : StreamersList.getInstance().getStreamers()) {
                 assert stream != null;
                 if (s.getId().equals(stream.getStreamerId())) {
                     fatade.simplify(s.getName(), array, stream);

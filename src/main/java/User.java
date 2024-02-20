@@ -58,7 +58,7 @@ public class User {
             reader.readNext();
             while ((line = reader.readNext()) != null) {
                 Integer[] streamsInt = Arrays.stream(line[2].split(" ")).map(Integer::parseInt).toArray(Integer[]::new);
-                            ListaUseri.getInstance().getUseri().add(new UsersBuilder().withId(Integer.parseInt(line[0]))
+                            UsersList.getInstance().getUseri().add(new UsersBuilder().withId(Integer.parseInt(line[0]))
                             .withName(line[1]).withStreams(streamsInt).build());
             }
         } catch (IOException e) {

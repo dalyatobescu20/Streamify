@@ -1,9 +1,7 @@
 import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Streamers {
 
@@ -49,7 +47,7 @@ public class Streamers {
                 String[] line;
                 reader.readNext();
                 while ((line = reader.readNext()) != null) {
-                    ListaStreameri.getInstance().getStreamers().add(new StreamersBuilder()
+                    StreamersList.getInstance().getStreamers().add(new StreamersBuilder()
                             .setStreamerType(Integer.parseInt(line[0])).setId(Integer.parseInt(line[1]))
                             .setName(line[2]).build());
                 }
